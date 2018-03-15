@@ -5,15 +5,19 @@
 
 angular.module('video-player')
   .component('app', {
-    controller: function() {
+    controller: function(youTube) {
       this.videos = window.exampleVideoData;
       this.youtubeSearchText = '';
       this.boxText = '';
-      this.executeSearch = function(searchText, callback) {
-        console.log('IM SEARCHING');
-        $ctrl.youtubeSearchText = searchText;
-        callback($ctrl.youtubeSearchText);
+      this.newData = function(data) {
+        this.videos = data;
+      }.bind(this);
+
+      this.searchClick = function(query, callback) {
+        youTube.search(query, callback);
       };
+
+
     },
     templateUrl:'./src/templates/app.html',
   });
