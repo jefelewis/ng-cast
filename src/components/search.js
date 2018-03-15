@@ -3,6 +3,7 @@ angular.module('video-player')
     templateUrl: './src/templates/search.html',
     bindings: {
       search: '=',
-      btext: '='
+      btext: '=',
+      ndata: '='
     }
   });
